@@ -1,0 +1,238 @@
+/* =====================================
+   RESET Y VARIABLES - PALETA TURQUESA/AMARILLO
+   ===================================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* PALETA SOLICITADA */
+    --color-primary: #40E0D0;   /* Azul Turquesa */
+    --color-secondary: #FFD700; /* Amarillo Oro */
+    
+    /* GRISES */
+    --color-bg-dark: #2d3436;   /* Gris Oscuro (Fondo Principal) */
+    --color-card-bg: #353b48;   /* Gris Intermedio (Tarjetas) */
+    --color-text: #dfe6e9;      /* Gris Claro (Texto General) */
+    --color-text-muted: #b2bec3; /* Gris más apagado para detalles */
+    
+    --nav-height: 80px;
+    --skew-angle: -5deg;
+    --transition: all 0.3s ease;
+}
+
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* FONDO ANIMADO (Ajustado a Turquesa) */
+body::before {
+    content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-image:
+        linear-gradient(rgba(64, 224, 208, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(64, 224, 208, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveGrid 20s linear infinite;
+    z-index: -1; opacity: 0.5;
+}
+@keyframes moveGrid { from { background-position: 0 0; } to { background-position: 80px 40px; } }
+
+h1, h2, h3, .logo { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Clases de utilidad para colores */
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+
+/* =====================================
+   NAVEGACIÓN
+   ===================================== */
+.navbar {
+    background-color: rgba(45, 52, 54, 0.95); /* Gris oscuro semi-transparente */
+    height: var(--nav-height);
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 2px solid var(--color-primary);
+    backdrop-filter: blur(5px);
+}
+.navbar-container {
+    height: 100%; display: flex; justify-content: space-between; align-items: center; position: relative;
+}
+
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-size: 1.6rem; font-weight: 900; z-index: 1002; }
+.logo .highlight { color: var(--color-secondary); } /* Amarillo en el logo */
+.logo-icon { color: var(--color-primary); }
+
+.nav-menu { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+
+.nav-link {
+    color: var(--color-text); text-decoration: none; font-weight: 500; font-size: 0.9rem;
+    padding: 8px 15px; border-radius: 4px; transition: var(--transition);
+    border: 1px solid transparent; display: block;
+}
+
+/* Hover turquesa con fondo suave */
+.nav-link:hover, .nav-link.active {
+    color: var(--color-primary);
+    background: rgba(64, 224, 208, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 10px rgba(64, 224, 208, 0.15);
+}
+
+/* =====================================
+   HERO
+   ===================================== */
+.hero {
+    padding: 6rem 0 4rem;
+    background: linear-gradient(180deg, rgba(45,52,54,0) 0%, var(--color-bg-dark) 100%);
+    text-align: center; border-bottom: 1px solid #444;
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
+.hero p { color: var(--color-text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+
+/* =====================================
+   MÓDULOS
+   ===================================== */
+.modules-wrapper { min-height: 50vh; padding-bottom: 4rem; }
+
+.module { 
+    display: none; padding-top: 3rem; padding-bottom: 3rem;
+    border-bottom: 1px dashed #555; 
+}
+.module:last-child { border-bottom: none; }
+.module.active { display: block; animation: slideUpFade 0.6s ease forwards; }
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+    font-size: 1.8rem; margin-bottom: 2rem; color: white;
+    border-left: 4px solid var(--color-secondary); padding-left: 15px;
+}
+
+/* =====================================
+   TARJETAS (Cards)
+   ===================================== */
+.portfolio-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;
+}
+
+.cyber-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid #444;
+    border-top: 3px solid var(--color-primary); /* Borde superior Turquesa */
+    border-radius: 6px;
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+    display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+}
+
+.cyber-card:hover {
+    transform: translateY(-5px);
+    border-top-color: var(--color-secondary); /* Cambia a Amarillo al hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background-color: #3f4756;
+}
+
+.card-image {
+    width: 100%; height: 180px; position: relative; overflow: hidden; background-color: #222;
+}
+.card-image img {
+    width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+}
+.cyber-card:hover .card-image img { transform: scale(1.1); }
+
+.card-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(45, 52, 54, 0.8); display: flex; justify-content: center; align-items: center;
+    opacity: 0; transition: var(--transition);
+}
+.card-overlay i { font-size: 3rem; color: var(--color-secondary); }
+.cyber-card:hover .card-overlay { opacity: 1; }
+
+.card-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+.cyber-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: white; }
+.cyber-card p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1.5rem; flex-grow: 1; }
+
+/* Botón (Ver Proyecto) */
+.btn-cta-small {
+    align-self: flex-start; display: inline-block; padding: 0.5rem 1rem;
+    background: transparent; color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    font-weight: 700; font-family: 'Orbitron', sans-serif; font-size: 0.8rem;
+    transform: skew(var(--skew-angle)); transition: var(--transition);
+}
+
+.cyber-card:hover .btn-cta-small {
+    background: var(--color-primary); color: #2d3436; /* Texto oscuro sobre turquesa */
+    box-shadow: 0 0 15px rgba(64, 224, 208, 0.4);
+    border-color: var(--color-primary);
+}
+
+/* =====================================
+   FOOTER
+   ===================================== */
+.footer {
+    background-color: #222; padding: 2rem 0; text-align: center;
+    border-top: 1px solid #444; font-size: 0.9rem; color: #888; margin-top: auto;
+}
+
+/* =====================================
+   MENÚ MÓVIL
+   ===================================== */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; z-index: 1002; }
+.hamburger { display: block; width: 25px; height: 3px; background: white; position: relative; transition: var(--transition); }
+.hamburger::before, .hamburger::after { content: ''; position: absolute; width: 100%; height: 100%; background: white; transition: var(--transition); }
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+
+.nav-toggle.active .hamburger { background: transparent; }
+.nav-toggle.active .hamburger::before { top: 0; transform: rotate(45deg); background: var(--color-secondary); }
+.nav-toggle.active .hamburger::after { top: 0; transform: rotate(-45deg); background: var(--color-secondary); }
+
+@media (max-width: 768px) {
+    .nav-toggle { display: block; }
+
+    .nav-menu {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--nav-height));
+        background-color: rgba(45, 52, 54, 0.98);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 3rem;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 999;
+    }
+
+    .nav-menu.active { transform: translateX(0); }
+
+    .nav-item {
+        width: 100%; text-align: center; margin: 10px 0;
+        opacity: 0; transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .nav-menu.active .nav-item { opacity: 1; transform: translateY(0); }
+    /* Retrasos para animación en cascada */
+    .nav-menu.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
+    .nav-menu.active .nav-item:nth-child(2) { transition-delay: 0.2s; }
+    .nav-menu.active .nav-item:nth-child(3) { transition-delay: 0.3s; }
+    .nav-menu.active .nav-item:nth-child(4) { transition-delay: 0.4s; }
+    .nav-menu.active .nav-item:nth-child(5) { transition-delay: 0.5s; }
+    .nav-menu.active .nav-item:nth-child(6) { transition-delay: 0.6s; }
+
+    .nav-link { font-size: 1.5rem; display: inline-block; padding: 15px 30px; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+}

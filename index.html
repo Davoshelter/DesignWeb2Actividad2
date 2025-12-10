@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Proyectos - Web Dev">
+    <title>Portafolio | Dev Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo" onclick="location.reload()">
+                <span class="logo-icon"><i class="fas fa-code"></i></span>
+                <span class="logo-text">Only<span class="highlight">Three</span></span>
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-module="todos">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-module="modulo6">Frameworks</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content container">
+            <h1>Mis Proyectos <span class="text-secondary">Frameworks</span></h1>
+            <p>Colección de proyectos utilizando tecnologías modernas como Bootstrap, Tailwind, Vue y React.</p>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <div class="container modules-wrapper">
+            
+            <section id="modulo6" class="module active">
+                <h2 class="section-title">Módulo 6: <span class="text-secondary">Frameworks</span></h2>
+                <div class="portfolio-grid">
+                    
+                    <a href="./MOD6EJE1/index.html" class="cyber-card">
+                        <div class="card-image">
+                            <img src="#" alt="Bootstrap" onerror="this.src='https://via.placeholder.com/400x200/563d7c/ffffff?text=Bootstrap+5'">
+                            <div class="card-overlay"><i class="fab fa-bootstrap"></i></div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Bootstrap 5</h3>
+                            <p>Componentes rápidos, sistema de rejilla y utilidades.</p>
+                            <span class="btn-cta-small">Ver Proyecto</span>
+                        </div>
+                    </a>
+
+                    <a href="./MOD6EJE2/index.html" class="cyber-card">
+                        <div class="card-image">
+                             <img src="#" alt="Tailwind" onerror="this.src='https://via.placeholder.com/400x200/06b6d4/ffffff?text=Tailwind+CSS'">
+                            <div class="card-overlay"><i class="fas fa-wind"></i></div>
+                        </div>
+                        <div class="card-content">
+                            <h3>Tailwind CSS</h3>
+                            <p>Diseño "Utility-First" para interfaces modernas.</p>
+                            <span class="btn-cta-small">Ver Proyecto</span>
+                        </div>
+                    </a>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 <strong>DevPort</strong>. Diseño Web & Frameworks.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
