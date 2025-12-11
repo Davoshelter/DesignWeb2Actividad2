@@ -1,0 +1,204 @@
+/* =========================================
+   1. DEFINICIÓN DE PALETA CYBER (:root)
+   ========================================= */
+:root {
+    /* --- PALETA FIJA (Nuestros colores de marca) --- */
+    --cyber-primary: #40E0D0;   /* Turquesa */
+    --cyber-secondary: #FFD700; /* Amarillo */
+    --cyber-dark-bg: #2d3436;   /* Gris Oscuro (Fondo) */
+    --cyber-dark-card: #353b48; /* Gris Intermedio (Cards) */
+    --cyber-light-bg: #f9f9f9;
+    --cyber-light-card: #ffffff;
+    
+    --color-text-dark: #2d3436; /* Texto para fondo claro */
+    --color-text-light: #dfe6e9;/* Texto para fondo oscuro */
+    --color-gray-muted: #b2bec3;
+
+    /* --- VARIABLES SEMÁNTICAS (Por defecto: LIGHT) --- */
+    --bg-body: var(--cyber-light-bg);
+    --bg-card: var(--cyber-light-card);
+    --text-main: var(--color-text-dark);
+    --text-role: var(--color-gray-muted); /* Color del cargo */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    
+    /* Acentos */
+    --accent-color: #00b894; /* Un verde azulado para modo claro */
+    --btn-border: #00b894;
+    --btn-text: #00b894;
+    --btn-hover-text: #ffffff;
+}
+
+/* =========================================
+   2. EL TEMA OSCURO (CYBER MODE)
+   ======================================== */
+[data-theme="dark"] {
+    --bg-body: var(--cyber-dark-bg);
+    --bg-card: var(--cyber-dark-card);
+    --text-main: var(--color-text-light);
+    --text-role: var(--cyber-secondary); /* El cargo ahora es AMARILLO */
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    
+    /* Acentos Turquesa */
+    --accent-color: var(--cyber-primary);
+    --btn-border: var(--cyber-primary);
+    --btn-text: var(--cyber-primary);
+    --btn-hover-text: var(--cyber-dark-bg); /* Texto oscuro al hacer hover */
+}
+
+/* =========================================
+   3. ESTILOS GENERALES
+   ========================================= */
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+/* Tarjeta */
+.card {
+    background-color: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    text-align: center;
+    width: 320px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    border: 1px solid transparent; /* Prepara borde para transición */
+}
+
+/* En modo oscuro, agregamos un borde sutil turquesa */
+[data-theme="dark"] .card {
+    border-color: rgba(64, 224, 208, 0.3);
+}
+
+.avatar-container {
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color); /* Borde del color del tema */
+    padding: 3px;
+    background-color: var(--bg-card);
+    transition: border-color 0.3s ease;
+}
+
+h2 { 
+    margin: 0; 
+    font-size: 1.8rem; 
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.role {
+    color: var(--text-role); /* Cambia a Amarillo en oscuro */
+    font-weight: 600;
+    margin: 5px 0 15px 0;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.desc {
+    color: var(--text-main);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 24px;
+    border: 2px solid var(--btn-border);
+    background: transparent;
+    color: var(--btn-text);
+    border-radius: 50px; /* Bordes redondeados más modernos */
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--btn-border);
+    color: var(--btn-hover-text);
+    box-shadow: 0 0 15px var(--btn-border); /* Glow effect al hover */
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   4. ESTILO DEL INTERRUPTOR (Toggle)
+   ========================================= */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 30px;
+    position: relative;
+    width: 60px;
+    margin-right: 15px;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+    background-color: #b2bec3; /* Gris apagado por defecto */
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 22px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 22px;
+    border-radius: 50%;
+}
+
+/* Estado ACTIVO (Modo Oscuro) - Turquesa */
+input:checked + .slider { 
+    background-color: var(--cyber-primary); 
+}
+
+input:checked + .slider:before { 
+    transform: translateX(30px); 
+    background-color: var(--cyber-dark-bg); /* El círculo se vuelve oscuro */
+}

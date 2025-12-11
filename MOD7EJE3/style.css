@@ -1,0 +1,123 @@
+/* =======================================================
+   PALETA DE COLORES (Cyber/Dark)
+   ======================================================= */
+:root {
+    --color-primary: #40E0D0;   /* Turquesa */
+    --color-secondary: #FFD700; /* Amarillo */
+    --bg-dark: #2d3436;         /* Fondo Principal */
+    --bg-card: #353b48;         /* Fondo Tarjetas */
+    --text-main: #dfe6e9;       /* Texto Claro */
+    --text-muted: #b2bec3;      /* Texto Apagado */
+}
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark); /* CAMBIO: Fondo Gris Oscuro */
+    font-family: sans-serif;
+    padding: 20px;
+    color: var(--text-main); /* CAMBIO: Texto claro por defecto */
+}
+
+/* =======================================================
+   EL CONTENEDOR MAESTRO (GRID) - Lógica Intacta
+   ======================================================= */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-auto-rows: 10px;
+    grid-auto-flow: dense;
+    gap: 15px;
+}
+
+/* =======================================================
+   LAS TARJETAS (Piezas del Tetris)
+   ======================================================= */
+.card {
+    background: var(--bg-card); /* CAMBIO: Fondo Tarjeta Gris Intermedio */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Sombra un poco más oscura */
+    
+    /* Grid Spans */
+    grid-row: span 26; 
+
+    /* Flexbox interno */
+    display: flex;
+    flex-direction: column;
+    
+    /* CAMBIO: Borde sutil para definir la tarjeta en fondo oscuro */
+    border: 1px solid #444;
+    border-bottom: 3px solid var(--color-primary); /* Acento Turquesa abajo */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto Hover (Opcional, para que se sienta interactivo) */
+.card:hover {
+    transform: translateY(-5px);
+    border-bottom-color: var(--color-secondary); /* Cambia a Amarillo al pasar el mouse */
+}
+
+/* VARIANTE: Tarjeta Alta */
+.card-tall {
+    grid-row: span 42;
+}
+
+/* VARIANTE: Tarjeta Ancha */
+.card-wide {
+    grid-column: span 2;
+    grid-row: span 26;
+}
+
+/* VARIANTE: Tarjeta Grande (Alta y Ancha) */
+.card-big {
+    grid-column: span 2;
+    grid-row: span 42;
+}
+
+/* =======================================================
+   LAS IMÁGENES
+   ======================================================= */
+figure {
+    margin: 0;
+    flex-grow: 1; 
+    height: 100%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* CAMBIO: Un filtro sutil para que las imágenes no brillen tanto sobre oscuro 
+       (se quita al pasar el mouse) */
+    opacity: 0.9; 
+    transition: opacity 0.3s;
+}
+
+.card:hover img {
+    opacity: 1;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+/* CAMBIO: Tipografía con colores de la paleta */
+.card-content h3 {
+    color: var(--color-primary); /* Títulos en Turquesa */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.card-content p {
+    color: var(--text-muted); /* Texto descriptivo en gris suave */
+    font-size: 0.9rem;
+}
