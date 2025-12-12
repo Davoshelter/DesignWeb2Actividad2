@@ -1,0 +1,260 @@
+/* =========================================
+   VARIABLES & RESET (Paleta Cyber)
+   ========================================= */
+:root {
+    --color-primary: #40E0D0;   /* Turquesa (Hora/Botones) */
+    --color-secondary: #FFD700; /* Amarillo (AM-PM/Stats) */
+    --bg-dark: #2d3436;         /* Fondo Pantalla */
+    --bg-card: #353b48;         /* Fondo Tarjetas */
+    --text-main: #dfe6e9;       /* Texto Claro */
+    --text-muted: #b2bec3;      /* Texto Apagado */
+    --text-dark: #2d3436;       /* Texto para contraste */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    /* Patrón de fondo Cyber */
+    background-image: linear-gradient(rgba(64, 224, 208, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(64, 224, 208, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: var(--text-main);
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+}
+
+/* =========================================
+   TARJETA PRINCIPAL (RELOJ)
+   ========================================= */
+.clock-card {
+    background: var(--bg-card);
+    padding: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+    border: 1px solid #444;
+    border-top: 4px solid var(--color-primary); /* Borde Neón */
+}
+
+.greeting {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(64, 224, 208, 0.3);
+}
+
+.time-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.time {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--color-primary); /* Hora en Turquesa */
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(64, 224, 208, 0.6); /* Efecto Glow */
+    animation: pulse 3s ease-in-out infinite; /* Pulso más lento y suave */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 20px rgba(64, 224, 208, 0.6);
+    }
+    50% {
+        transform: scale(1.02);
+        text-shadow: 0 0 40px rgba(64, 224, 208, 0.8);
+    }
+}
+
+.period {
+    font-size: 2rem;
+    color: var(--color-secondary); /* AM/PM en Amarillo */
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.date {
+    font-size: 1.3rem;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+/* =========================================
+   CONTROLES
+   ========================================= */
+.controls {
+    margin: 2rem 0;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    background: var(--color-primary);
+    color: var(--text-dark); /* Texto oscuro para contraste */
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(64, 224, 208, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: #55efc4;
+    box-shadow: 0 8px 25px rgba(64, 224, 208, 0.5);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.timezone-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+}
+
+.label {
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+#timezone {
+    font-family: 'Courier New', monospace;
+    color: var(--text-main);
+}
+
+/* =========================================
+   STATS GRID
+   ========================================= */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+    border: 1px solid #444;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-secondary); /* Borde amarillo al hover */
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    /* Filtro para colorear emojis si es necesario, o usar color directo */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-secondary); /* Valores en Amarillo */
+    font-family: 'Courier New', monospace;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   ANIMACIONES EXTRA
+   ========================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de los dos puntos parpadeantes (si la usas en el HTML) */
+@keyframes blink {
+    0%, 100% { opacity: 1; text-shadow: 0 0 20px rgba(64, 224, 208, 0.6); }
+    50% { opacity: 0.3; text-shadow: none; }
+}
+
+.time.blink {
+    animation: blink 1s ease-in-out infinite;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 600px) {
+    .clock-card {
+        padding: 2rem;
+    }
+    
+    .greeting {
+        font-size: 1.4rem;
+    }
+    
+    .time {
+        font-size: 3rem;
+    }
+    
+    .period {
+        font-size: 1.5rem;
+    }
+    
+    .date {
+        font-size: 1.1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

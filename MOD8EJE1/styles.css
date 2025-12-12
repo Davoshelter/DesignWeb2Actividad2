@@ -1,0 +1,219 @@
+/* =========================================
+   VARIABLES & RESET (Paleta Cyber)
+   ========================================= */
+:root {
+    --color-primary: #40E0D0;   /* Turquesa */
+    --color-secondary: #FFD700; /* Amarillo */
+    --bg-dark: #2d3436;         /* Fondo Pantalla */
+    --bg-card: #353b48;         /* Fondo Calculadora */
+    --bg-display: #1e272e;      /* Fondo Pantalla Números */
+    --text-main: #dfe6e9;       /* Texto Claro */
+    --text-dark: #2d3436;       /* Texto Oscuro (para botones brillantes) */
+    
+    /* Colores funcionales ajustados al tema */
+    --color-danger: #ff7675;    /* Rojo suave para Clear */
+    --color-warning: #fdcb6e;   /* Naranja suave para Delete */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    /* Opcional: Un patrón de fondo sutil si lo deseas */
+    background-image: radial-gradient(circle at 50% 50%, #353b48 1px, transparent 1px);
+    background-size: 30px 30px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: var(--text-main);
+}
+
+/* =========================================
+   CALCULADORA (CONTENEDOR)
+   ========================================= */
+.calculator {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); /* Sombra más fuerte */
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid #444;
+    border-top: 3px solid var(--color-primary); /* Detalle Cyber */
+}
+
+/* =========================================
+   DISPLAY (PANTALLA)
+   ========================================= */
+.display {
+    background: var(--bg-display);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: right;
+    min-height: 100px;
+    border: 1px solid #444;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.previous-operand {
+    color: var(--color-primary); /* Operación anterior en Turquesa */
+    font-size: 1.2rem;
+    min-height: 1.5rem;
+    opacity: 0.7;
+}
+
+.current-operand {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    word-wrap: break-word;
+    word-break: break-all;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Brillo sutil */
+}
+
+/* =========================================
+   BOTONES
+   ========================================= */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1); /* Efecto genérico de brillo */
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Botones Numéricos (Gris un poco más claro que el fondo) */
+.btn-number {
+    background: #4b5563; 
+    color: var(--text-main);
+    box-shadow: 0 4px 0 #374151; /* Efecto 3D sutil */
+}
+
+.btn-number:hover {
+    background: #576574;
+}
+
+/* Operadores (Turquesa) */
+.btn-operator {
+    background: var(--color-primary);
+    color: var(--text-dark); /* Texto oscuro para contraste */
+    box-shadow: 0 4px 0 #00b894;
+}
+
+/* AC (Limpiar todo) */
+.btn-clear {
+    background: var(--color-danger);
+    color: var(--text-dark);
+    box-shadow: 0 4px 0 #d63031;
+}
+
+/* DEL (Borrar uno) */
+.btn-delete {
+    background: var(--color-warning);
+    color: var(--text-dark);
+    box-shadow: 0 4px 0 #e17055;
+}
+
+/* IGUAL (Amarillo - Acción principal) */
+.btn-equals {
+    background: var(--color-secondary);
+    color: var(--text-dark);
+    box-shadow: 0 4px 0 #b7950b;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+/* =========================================
+   HISTORIAL
+   ========================================= */
+.history {
+    border-top: 1px solid #555;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.history h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.history-list {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    /* Scrollbar estilo dark */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--bg-display);
+}
+
+/* Estilo para Webkit (Chrome/Edge/Safari) */
+.history-list::-webkit-scrollbar {
+    width: 6px;
+}
+.history-list::-webkit-scrollbar-track {
+    background: var(--bg-display);
+}
+.history-list::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 10px;
+}
+
+.history-item {
+    background: var(--bg-display);
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    border-left: 2px solid var(--color-secondary); /* Acento amarillo */
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-clear-history {
+    width: 100%;
+    padding: 0.8rem;
+    background: transparent;
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-clear-history:hover {
+    background: var(--color-danger);
+    color: white;
+}

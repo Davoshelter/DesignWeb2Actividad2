@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Cyber - Theme Switcher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌓 Theme Switcher</h1>
+            <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+                <span class="icon">☀️</span>
+            </button>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>Modo Cyber / Light</h2>
+                <p>Este proyecto utiliza Variables CSS para gestionar la paleta <strong>Turquesa & Amarillo</strong> en ambos temas.</p>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <span class="emoji">💾</span>
+                        <h3>Persistencia</h3>
+                        <p>Guardamos tu elección (LocalStorage)</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="emoji">🎨</span>
+                        <h3>Estilo</h3>
+                        <p>Paleta Cyberpunk Adaptativa</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="emoji">⚡</span>
+                        <h3>Lógica DOM</h3>
+                        <p>Manipulación de clases CSS</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Código del Switch</h2>
+                <pre><code>/* La magia ocurre en CSS */
+:root {
+    /* Por defecto: Cyber Dark */
+    --bg-color: #2d3436;
+}
+
+body.light-mode {
+    /* Clase opcional: Light */
+    --bg-color: #f9f9f9;
+}</code></pre>
+            </section>
+
+            <section class="stats">
+                <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>Responsive</p>
+                </div>
+                <div class="stat-card">
+                    <h3>CSS</h3>
+                    <p>Variables</p>
+                </div>
+                <div class="stat-card">
+                    <h3>JS</h3>
+                    <p>LocalStorage</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 DevPort. Diseño Cyber Dark.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
