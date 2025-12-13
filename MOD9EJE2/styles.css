@@ -1,0 +1,282 @@
+:root {
+    --bg-dark: #1e2126;       /* Fondo principal */
+    --card-dark: #2b303b;     /* Fondo de tarjeta */
+    --cyan: #00ead3;          /* Acento principal */
+    --cyan-dim: rgba(0, 234, 211, 0.1);
+    --danger: #ff4757;        /* Rojo neón */
+    --text-main: #ffffff;
+    --text-muted: #8f9aa3;
+    
+    --font-head: 'Orbitron', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+.container {
+    max-width: 650px;
+    width: 100%;
+}
+
+/* Marca superior */
+.brand-header {
+    text-align: center;
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+.brand-header span {
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    color: var(--text-main);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    color: var(--cyan);
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Tarjeta Principal */
+.todo-app {
+    background: var(--card-dark);
+    border-radius: 4px;
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-top: 3px solid var(--cyan); /* Línea superior estilo imagen */
+}
+
+/* Sección de Input */
+.input-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#todoInput {
+    flex: 1;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: white;
+    font-family: var(--font-body);
+    transition: all 0.3s;
+}
+
+#todoInput:focus {
+    outline: none;
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan-dim);
+}
+
+#addBtn {
+    padding: 0 2rem;
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-head);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+#addBtn:hover {
+    background: var(--cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px var(--cyan);
+}
+
+/* Filtros */
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap; /* Para móviles */
+}
+
+.filter-btn {
+    flex: 1;
+    padding: 0.8rem;
+    background: transparent;
+    border: 1px solid #444; /* Borde sutil por defecto */
+    color: var(--text-muted);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    min-width: 100px;
+}
+
+.filter-btn:hover {
+    border-color: var(--cyan);
+    color: var(--text-main);
+}
+
+/* Filtro Activo: Relleno Cian */
+.filter-btn.active {
+    background: var(--cyan);
+    color: var(--bg-dark); /* Texto oscuro sobre fondo cian */
+    border-color: var(--cyan);
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--cyan-dim);
+}
+
+.count {
+    display: inline-block;
+    background: rgba(0,0,0,0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+/* Lista de Tareas */
+.todo-list {
+    list-style: none;
+    margin-bottom: 2rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Barra de scroll personalizada */
+.todo-list::-webkit-scrollbar { width: 5px; }
+.todo-list::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: #363b45; /* Gris oscuro para diferenciar del fondo */
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.todo-item:hover {
+    transform: translateX(5px);
+    background: #404652;
+    border-left-color: var(--cyan);
+}
+
+/* Checkbox personalizado (un poco más grande) */
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 1rem;
+    cursor: pointer;
+    accent-color: var(--cyan); /* Color nativo del navegador para checkbox */
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 1rem;
+    color: white;
+}
+
+/* Estado completado */
+.todo-item.completed {
+    opacity: 0.6;
+    background: #222;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+/* Botón Eliminar (Dentro del item) */
+.delete-btn {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-head);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.delete-btn:hover {
+    background: var(--danger);
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 71, 87, 0.4);
+}
+
+/* Footer de Acciones */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #444;
+    padding-top: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#itemsLeft {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-family: var(--font-head);
+}
+
+#clearCompleted {
+    background: transparent;
+    color: var(--danger); /* Rojo solo en texto y borde */
+    border: 1px solid var(--danger);
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+#clearCompleted:hover {
+    background: var(--danger);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 71, 87, 0.4);
+}

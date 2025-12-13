@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería | ONLYTHREE Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="brand-header">
+            <span>&lt;/&gt;</span> ONLY<span>THREE</span>
+        </div>
+
+        <header class="header">
+            <h1>VISUAL <span class="highlight">GALLERY</span></h1>
+            <p>SISTEMA DE VISUALIZACIÓN DE IMÁGENES</p>
+        </header>
+
+        <div class="controls-card">
+            <div class="controls">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="BUSCAR ARCHIVO..." autocomplete="off">
+                </div>
+
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">TODO</button>
+                    <button class="filter-btn" data-filter="naturaleza">NATURALEZA</button>
+                    <button class="filter-btn" data-filter="ciudad">CIUDAD</button>
+                    <button class="filter-btn" data-filter="tecnologia">TECH</button>
+                    <button class="filter-btn" data-filter="personas">PERSONAS</button>
+                </div>
+
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" title="Vista Cuadrícula">
+                        <span>⊞</span>
+                    </button>
+                    <button class="view-btn" data-view="list" title="Vista Lista">
+                        <span>☰</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="stats">
+                <span>ARCHIVOS ENCONTRADOS: <strong id="imageCount">0</strong></span>
+            </div>
+        </div>
+
+        <div class="gallery" id="gallery">
+            </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-prev">‹</button>
+        <button class="lightbox-next">›</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-info">
+                <span id="lightboxCategory" class="category-tag"></span>
+                <h3 id="lightboxTitle"></h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

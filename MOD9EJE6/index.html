@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Modals | ONLYTHREE Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="brand-header">
+            <span>&lt;/&gt;</span> ONLY<span>THREE</span>
+        </div>
+
+        <header class="header">
+            <h1>SYSTEM <span class="highlight">MODALS</span></h1>
+            <p>INTERFAZ DE VENTANAS EMERGENTES</p>
+        </header>
+
+        <main class="content">
+            <section class="intro">
+                <h2>PROTOCOLO DE INTERACCIÓN</h2>
+                <p>Las ventanas modales requieren autorización del usuario para continuar con los procesos del sistema principal.</p>
+            </section>
+
+            <section class="demo-buttons">
+                <h3>EJECUTAR COMANDOS</h3>
+                
+                <div class="btn-grid">
+                    <button class="btn btn-primary" data-modal="modal1">
+                        📝 FORMULARIO
+                    </button>
+                    
+                    <button class="btn btn-success" data-modal="modal2">
+                        ✅ CONFIRMAR
+                    </button>
+                    
+                    <button class="btn btn-info" data-modal="modal3">
+                        ℹ️ SISTEMA
+                    </button>
+                    
+                    <button class="btn btn-warning" data-modal="modal4">
+                        🖼️ VISUALIZAR
+                    </button>
+                </div>
+            </section>
+
+            <section class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3>INTUITIVO</h3>
+                    <p>Interacción directa</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>VELOCIDAD</h3>
+                    <p>Carga instantánea</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>SEGURIDAD</h3>
+                    <p>Bloqueo de fondo</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">♿</span>
+                    <h3>ACCESO</h3>
+                    <p>Soporte teclado ESC</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal" id="modal1">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <h2>INGRESO DE DATOS</h2>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>IDENTIFICACIÓN:</label>
+                    <input type="text" placeholder="Nombre de usuario..." autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>ENLACE (EMAIL):</label>
+                    <input type="email" placeholder="usuario@red.com" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>TRANSMISIÓN:</label>
+                    <textarea rows="4" placeholder="Escriba su mensaje aquí..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary full-width">ENVIAR DATOS</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="modal2">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-small">
+            <button class="modal-close">×</button>
+            <div class="modal-icon success">✓</div>
+            <h2>CONFIRMAR ACCIÓN</h2>
+            <p>Esta operación es irreversible en el sistema. ¿Proceder?</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary cancel-btn">ABORTAR</button>
+                <button class="btn btn-success">EJECUTAR</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal3">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-icon info">ℹ️</div>
+            <h2>LOG DEL SISTEMA</h2>
+            <p>Funcionalidades activas del módulo modal:</p>
+            <ul>
+                <li><span>▹</span> Captura de información crítica</li>
+                <li><span>▹</span> Alertas de sistema prioritarias</li>
+                <li><span>▹</span> Protocolos de confirmación</li>
+                <li><span>▹</span> Visualización de archivos media</li>
+            </ul>
+            <p class="highlight-text">ESTADO: <strong>OPERATIVO</strong></p>
+        </div>
+    </div>
+
+    <div class="modal" id="modal4">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-large">
+            <button class="modal-close">×</button>
+            <h2>ARCHIVOS VISUALES</h2>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400" alt="Montaña">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400" alt="Bosque">
+                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400" alt="Playa">
+                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400" alt="Ciudad">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+:root {
+    --bg-dark: #1e2126;       /* Fondo oscuro principal */
+    --card-dark: #2b303b;     /* Fondo de la tarjeta */
+    --cyan: #00ead3;          /* El color principal de tu imagen */
+    --cyan-dim: rgba(0, 234, 211, 0.1);
+    --text-white: #ffffff;
+    --text-muted: #8f9aa3;
+    
+    /* Colores funcionales estilo neón */
+    --color-edit: #ffa502;    /* Naranja para editar */
+    --color-delete: #ff6b6b;  /* Rojo para borrar */
+    --color-save: #2ed573;    /* Verde para guardar */
+
+    --font-title: 'Orbitron', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Marca superior estilo imagen */
+.brand-header {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--text-white);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+.brand-header span {
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+}
+
+.card {
+    background: var(--card-dark);
+    border-radius: 4px;
+    padding: 2.5rem;
+    /* Borde superior cian como en las tarjetas de tu imagen */
+    border-top: 3px solid var(--cyan);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-family: var(--font-title);
+    color: var(--cyan);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.highlight { color: white; }
+
+.subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Input y Botón principal */
+.input-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#itemInput {
+    flex: 1;
+    padding: 1rem;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: white;
+    font-family: var(--font-body);
+    transition: all 0.3s;
+}
+
+#itemInput:focus {
+    outline: none;
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan-dim);
+}
+
+/* Estilo de botón "Outline" como en tu imagen */
+.btn {
+    padding: 0 1.5rem;
+    border: 1px solid var(--cyan);
+    background: transparent;
+    color: var(--cyan);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    height: 52px; /* Misma altura que el input aprox */
+}
+
+.btn-add:hover {
+    background: var(--cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px var(--cyan);
+}
+
+.stats {
+    text-align: right;
+    padding: 0.5rem;
+    background: transparent;
+    border-bottom: 1px solid #444;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.stats strong {
+    color: var(--cyan);
+    font-size: 1rem;
+}
+
+/* Lista de Items */
+.item-list {
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 2rem;
+    padding-right: 5px;
+}
+
+/* Mensaje vacío */
+.item-list:empty::after {
+    content: 'SISTEMA VACÍO // INGRESE DATOS';
+    display: block;
+    text-align: center;
+    color: #555;
+    padding: 2rem;
+    font-family: var(--font-title);
+    border: 1px dashed #444;
+}
+
+/* Estilos de cada Item */
+.list-item {
+    background: #363b45;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.list-item:hover {
+    transform: translateX(5px);
+    background: #404652;
+    border-left-color: var(--cyan);
+}
+
+.item-text {
+    flex: 1;
+    color: #eee;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   AQUÍ ESTÁ LA SOLUCIÓN A TUS BOTONES
+   ========================================= */
+.item-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Base para los botones cuadrados pequeños */
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;              /* Asegura que se vean */
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+/* Botón EDITAR (Naranja estilo Cyberpunk) */
+.btn-edit {
+    background: rgba(255, 165, 2, 0.15); /* Fondo transparente tintado */
+    border: 1px solid var(--color-edit);  /* Borde sólido */
+    color: var(--color-edit);             /* Texto/Icono color */
+}
+.btn-edit:hover {
+    background: var(--color-edit);
+    color: #000;
+}
+
+/* Botón ELIMINAR (Rojo estilo Cyberpunk) */
+.btn-delete {
+    background: rgba(255, 107, 107, 0.15);
+    border: 1px solid var(--color-delete);
+    color: var(--color-delete);
+}
+.btn-delete:hover {
+    background: var(--color-delete);
+    color: white;
+}
+
+/* Botón GUARDAR (Verde estilo Cyberpunk) */
+.btn-save {
+    background: rgba(46, 213, 115, 0.15);
+    border: 1px solid var(--color-save);
+    color: var(--color-save);
+}
+.btn-save:hover {
+    background: var(--color-save);
+    color: #000;
+}
+
+/* === Lógica de ocultar/mostrar botones (IMPORTANTE NO BORRAR) === */
+
+/* Por defecto el botón guardar está oculto */
+.list-item .btn-save {
+    display: none;
+}
+
+/* MODO EDICIÓN */
+.list-item.editing {
+    border-left-color: var(--color-edit); /* Borde naranja al editar */
+    background: rgba(0,0,0,0.3);
+}
+
+.list-item.editing .item-text {
+    display: none;
+}
+
+.list-item .edit-input {
+    display: none;
+    flex: 1;
+}
+
+/* Input de edición visible */
+.list-item.editing .edit-input {
+    display: block;
+    padding: 0.5rem;
+    background: #111;
+    border: 1px solid var(--color-edit);
+    color: white;
+    border-radius: 4px;
+    font-family: var(--font-body);
+}
+
+/* Al editar: mostrar guardar, ocultar editar */
+.list-item.editing .btn-save {
+    display: flex; /* Flex para mantener centrado el icono */
+}
+.list-item.editing .btn-edit {
+    display: none;
+}
+
+/* Botón Limpiar Todo */
+.actions { text-align: center; }
+
+.btn-danger {
+    color: var(--color-delete);
+    border-color: var(--color-delete);
+    width: 100%;
+}
+.btn-danger:hover {
+    background: var(--color-delete);
+    color: white;
+    box-shadow: 0 0 15px var(--color-delete);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .card { padding: 1.5rem; }
+    .input-section { flex-direction: column; }
+    .btn { width: 100%; }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Virtual | ONLYTHREE Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-main">
+        <div class="brand-header">
+            <span>&lt;/&gt;</span> ONLY<span>THREE</span>
+        </div>
+
+        <header class="shop-header">
+            <div class="header-content">
+                <h1>DIGITAL <span class="highlight">STORE</span></h1>
+                <p>HARDWARE & GADGETS // SISTEMA DE COMPRAS</p>
+            </div>
+            
+            <div class="cart-icon-wrapper">
+                <span class="icon">🛍️</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </header>
+
+        <div class="layout-grid">
+            <section class="products-section">
+                <div class="section-title">
+                    <h2>CATÁLOGO DISPONIBLE</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    </div>
+            </section>
+
+            <aside class="cart-section">
+                <h2>CARRITO DE SISTEMA</h2>
+                
+                <div class="cart-items" id="cartItems">
+                    <p class="empty-cart">NO SE DETECTAN ITEMS</p>
+                </div>
+
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <div class="summary-row">
+                        <span>SUBTOTAL:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>IMPUESTOS (16%):</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>ENVÍO:</span>
+                        <span id="shipping">$50.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>TOTAL A PAGAR:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    
+                    <button class="btn-checkout" id="checkoutBtn">
+                        CONFIRMAR PAGO
+                    </button>
+                    
+                    <button class="btn-clear" id="clearCartBtn">
+                        VACIAR SISTEMA
+                    </button>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="success-icon">✅</div>
+            <h2>¡TRANSACCIÓN COMPLETADA!</h2>
+            <p>El pedido ha sido procesado en el sistema.</p>
+            <p class="order-total-text">TOTAL PAGADO: <span id="orderTotal" class="highlight"></span></p>
+            <button class="btn-primary" onclick="closeModal()">CERRAR VENTANA</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

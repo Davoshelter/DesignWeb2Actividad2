@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List | ONLYTHREE Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="brand-header">
+            <span>&lt;/&gt;</span> ONLY<span>THREE</span>
+        </div>
+
+        <header>
+            <h1>TASK <span class="highlight">MANAGER</span></h1>
+            <p>ORGANIZA TU DÍA // SISTEMA ACTIVO</p>
+        </header>
+
+        <div class="todo-app">
+            <div class="input-section">
+                <input type="text" id="todoInput" placeholder="NUEVA TAREA..." autocomplete="off"/>
+                <button id="addBtn">AÑADIR</button>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">TODAS <span class="count" id="allCount">0</span></button>
+                <button class="filter-btn" data-filter="active">ACTIVAS <span class="count" id="activeCount">0</span></button>
+                <button class="filter-btn" data-filter="completed">HECHAS <span class="count" id="completedCount">0</span></button>
+            </div>
+
+            <ul id="todoList" class="todo-list">
+                </ul>
+
+            <div class="actions">
+                <span id="itemsLeft">0 tareas pendientes</span>
+                <button id="clearCompleted">LIMPIAR COMPLETADAS</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

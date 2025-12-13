@@ -1,0 +1,383 @@
+:root {
+    --bg-dark: #1e2126;       /* Fondo principal */
+    --card-dark: #2b303b;     /* Fondo de contenedores */
+    --cyan: #00ead3;          /* Acento Neón */
+    --cyan-dim: rgba(0, 234, 211, 0.1);
+    --text-main: #ffffff;
+    --text-muted: #8f9aa3;
+    
+    --font-head: 'Orbitron', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Marca Superior */
+.brand-header {
+    text-align: center;
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+.brand-header span {
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+/* Contenedor Principal */
+.tabs-container {
+    background: var(--card-dark);
+    border-radius: 4px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-top: 3px solid var(--cyan);
+    position: relative;
+}
+
+/* Encabezado interno */
+.main-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-family: var(--font-head);
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.highlight { color: var(--cyan); }
+
+.subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* --- BOTONES DE TABS --- */
+.tab-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 1rem;
+    overflow-x: auto; /* Para móviles */
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem;
+    background: transparent;
+    border: 1px solid #444;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-head);
+    font-weight: bold;
+    color: var(--text-muted);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.tab-btn:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    background: rgba(0, 234, 211, 0.05);
+}
+
+/* Estado Activo del Tab */
+.tab-btn.active {
+    color: var(--bg-dark);
+    background: var(--cyan);
+    border-color: var(--cyan);
+    box-shadow: 0 0 15px var(--cyan-dim);
+}
+.tab-btn.active .icon {
+    filter: brightness(0); /* Icono oscuro sobre fondo cian */
+}
+
+.tab-btn .icon {
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+/* --- CONTENIDO DE TABS --- */
+.tab-contents {
+    position: relative;
+    min-height: 400px;
+    background: rgba(0,0,0,0.2); /* Fondo ligeramente más oscuro para el contenido */
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 2rem;
+}
+
+/* La magia del JS: Display None/Block */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content h2 {
+    color: var(--cyan);
+    margin-bottom: 1rem;
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.tab-content p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* --- Features Grid (Tab 1) --- */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.feature {
+    text-align: center;
+    padding: 1.5rem;
+    background: #1e2126;
+    border: 1px solid #444;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.feature h3 {
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-head);
+    font-size: 1rem;
+}
+
+/* --- Lista de Servicios (Tab 2) --- */
+.service-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.service-list li {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    background: #1e2126;
+    border-radius: 4px;
+    border-left: 3px solid #444;
+    font-size: 1rem;
+    transition: all 0.3s;
+    font-family: var(--font-head);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.service-list li span {
+    color: var(--cyan);
+}
+
+.service-list li:hover {
+    transform: translateX(10px);
+    border-left-color: var(--cyan);
+    background: #252930;
+}
+
+/* --- Stats Grid (Tab 3) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: transparent;
+    border: 1px solid var(--cyan);
+    color: white;
+    padding: 2rem;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de fondo sutil en stats */
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cyan);
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--cyan);
+    font-family: var(--font-head);
+    position: relative; z-index: 1;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative; z-index: 1;
+}
+
+/* --- Contact Form (Tab 4) --- */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--cyan);
+    font-weight: bold;
+    font-size: 0.8rem;
+    font-family: var(--font-head);
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: #1e2126;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: white;
+    font-family: var(--font-body);
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan-dim);
+}
+
+/* Botón de Acción (Outline style) */
+.cta-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-btn:hover {
+    background: var(--cyan);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--cyan-dim);
+}
+
+.action-wrapper {
+    margin-top: 2rem;
+}
+
+/* Hint del teclado */
+.keyboard-hint {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: transparent;
+    border-top: 1px dashed #444;
+    color: #666;
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+    color: var(--cyan);
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tabs-container { padding: 1.5rem; }
+    .tab-buttons { padding-bottom: 0.5rem; }
+    .tab-btn { padding: 0.8rem; font-size: 0.8rem; }
+}

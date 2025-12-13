@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs System | ONLYTHREE Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="brand-header">
+            <span>&lt;/&gt;</span> ONLY<span>THREE</span>
+        </div>
+
+        <div class="tabs-container">
+            <header class="main-header">
+                <h1>SYSTEM <span class="highlight">TABS</span></h1>
+                <p class="subtitle">INTERFAZ DE NAVEGACIÓN MODULAR</p>
+            </header>
+            
+            <div class="tab-buttons" role="tablist">
+                <button class="tab-btn active" data-tab="tab1" role="tab" aria-selected="true">
+                    <span class="icon">🏠</span>
+                    INICIO
+                </button>
+                <button class="tab-btn" data-tab="tab2" role="tab" aria-selected="false">
+                    <span class="icon">💼</span>
+                    SERVICIOS
+                </button>
+                <button class="tab-btn" data-tab="tab3" role="tab" aria-selected="false">
+                    <span class="icon">📊</span>
+                    STATS
+                </button>
+                <button class="tab-btn" data-tab="tab4" role="tab" aria-selected="false">
+                    <span class="icon">📧</span>
+                    CONTACTO
+                </button>
+            </div>
+
+            <div class="tab-contents">
+                
+                <div class="tab-content active" id="tab1" role="tabpanel">
+                    <h2>BIENVENIDO AL SISTEMA</h2>
+                    <p>Panel de control principal activado. Seleccione un módulo para continuar.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">⚡</span>
+                            <h3>VELOCIDAD</h3>
+                            <p>Respuesta inmediata del sistema</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🎨</span>
+                            <h3>INTERFAZ</h3>
+                            <p>Diseño visual de alta gama</p>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">⌨️</span>
+                            <h3>ACCESIBLE</h3>
+                            <p>Control total por teclado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab2" role="tabpanel">
+                    <h2>PROTOCOLOS DE SERVICIO</h2>
+                    <p>Despliegue de capacidades disponibles.</p>
+                    <ul class="service-list">
+                        <li><span>▹</span> DESARROLLO WEB FULL STACK</li>
+                        <li><span>▹</span> DISEÑO UI/UX AVANZADO</li>
+                        <li><span>▹</span> OPTIMIZACIÓN DE ALGORITMOS (SEO)</li>
+                        <li><span>▹</span> DESARROLLO DE APPS MÓVILES</li>
+                        <li><span>▹</span> CONSULTORÍA DE SISTEMAS</li>
+                    </ul>
+                    <div class="action-wrapper">
+                        <button class="cta-btn">INICIAR COTIZACIÓN</button>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab3" role="tabpanel">
+                    <h2>MÉTRICAS DEL NÚCLEO</h2>
+                    <p>Análisis de rendimiento en tiempo real.</p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">1,234</div>
+                            <div class="stat-label">USUARIOS ACTIVOS</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">EFICIENCIA</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">UPTIME</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">MODULES</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab4" role="tabpanel">
+                    <h2>ENLACE DE COMUNICACIÓN</h2>
+                    <p>Establecer conexión con el administrador.</p>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">IDENTIFICACIÓN (NOMBRE):</label>
+                            <input type="text" id="name" placeholder="Ingrese nombre..." autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">FRECUENCIA (EMAIL):</label>
+                            <input type="email" id="email" placeholder="usuario@red.com" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">TRANSMISIÓN DE DATOS:</label>
+                            <textarea id="message" rows="4" placeholder="Escriba su mensaje aquí..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-btn">ENVIAR DATOS</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="keyboard-hint">
+                <span class="blink">_</span> CONSOLA: USA FLECHAS ← → PARA NAVEGAR
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
